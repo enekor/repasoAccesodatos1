@@ -1,0 +1,22 @@
+<xml version="1.0" encoding="UTF-8">
+<usuarios>
+    <usuario id="1">
+        <nombre>Pepe</nombre>
+        <apellido>Gimenez</apellido>
+        <genero>Hombre</genero>
+        <edad>34</edad>
+    </usuario>
+    <usuario id="2">
+        <nombre>Ramon</nombre>
+        <apellido>Ramos</apellido>
+        <genero>Hombre</genero>
+        <edad>54</edad>
+    </usuario>
+    <usuario id="3">
+        <nombre>Alma</nombre>
+        <apellido>Marcela Gozo</apellido>
+        <genero>Mujer</genero>
+        <edad>23</edad>
+    </usuario>
+</usuarios>
+</xml>

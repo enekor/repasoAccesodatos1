@@ -12,10 +12,10 @@ import java.util.List;
 
 public class Sax {
 
-    private String uri=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"users.xml";
+    private String uri=System.getProperty("user.dir")+ File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"users.xml";
     List<User> userList = new ArrayList<>();
 
-    private void crearObjetosDesdeXml() throws ParserConfigurationException, SAXException, IOException {
+    public void crearObjetosDesdeXml() throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory spFactory = SAXParserFactory.newInstance();
         SAXParser parser = spFactory.newSAXParser();
 
@@ -24,5 +24,19 @@ public class Sax {
         parser.parse(uri,handler);
 
         userList = handler.getUserList();
+
+        System.out.println(userList.size());
+        System.out.println(userList);
     }
+
+    public static void main(String[] args) {
+        Sax s = new Sax();
+        try {
+            s.crearObjetosDesdeXml();
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<User> getUserList(){return userList;}
 }

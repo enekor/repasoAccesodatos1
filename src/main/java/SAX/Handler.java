@@ -9,10 +9,11 @@ import java.util.List;
 
 public class Handler extends DefaultHandler {
 
-    boolean hasFirstName = false;
-    boolean hasLasttName = false;
-    boolean hasAge = false;
-    boolean hasGender = false;
+    boolean hasNombre = false;
+    boolean hasApellido = false;
+    boolean hasEdad = false;
+    boolean hasGenero = false;
+
     List<User> userList;
     User user;
 
@@ -21,49 +22,50 @@ public class Handler extends DefaultHandler {
         if(userList==null){
             userList=new ArrayList<>();
         }
-        if(qName.equalsIgnoreCase("User")){
+        if(qName.equalsIgnoreCase("usuario")){
            user = new User();
             user.setId(Integer.parseInt(attributes.getValue("id")));
-            if(qName.equalsIgnoreCase("firstName")){
-                hasFirstName=true;
+            if(qName.equalsIgnoreCase("nombre")){
+                hasNombre=true;
             }
-            else if(qName.equalsIgnoreCase("lastName")){
-                hasLasttName=true;
+            else if(qName.equalsIgnoreCase("apellido")){
+                hasApellido=true;
             }
-            else if (qName.equalsIgnoreCase("age")){
-                hasAge=true;
+            else if (qName.equalsIgnoreCase("edad")){
+                hasEdad=true;
             }
-            else if(qName.equalsIgnoreCase("gender")){
-                hasGender=true;
+            else if(qName.equalsIgnoreCase("genero")){
+                hasGenero=true;
             }
         }
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if(qName.equalsIgnoreCase("User"))
+        if(qName.equalsIgnoreCase("user"))
             userList.add(user);
     }
 
     @Override
-    public void characters(char ch[], int start, int length) throws SAXException {
-        if(hasAge) {
-            user.setAge(Integer.parseInt(new String(ch, start, length)));
-            hasAge=false;
+    public void characters(char[] ch, int start, int length) throws SAXException {
+        if(hasEdad) {
+            user.setEdad(Integer.parseInt(new String(ch, start, length)));
+            hasEdad=false;
         }
-        if(hasFirstName) {
-            user.setFirstName(new String(ch, start, length));
-            hasFirstName = false;
+        if(hasNombre) {
+            user.setNombre(new String(ch, start, length));
+            hasNombre = false;
         }
-        if(hasLasttName) {
-            user.setLastName(new String(ch, start, length));
-            hasLasttName = false;
+        if(hasApellido) {
+            user.setApellido(new String(ch, start, length));
+            hasApellido = false;
         }
-        if(hasGender) {
-            user.setGender(new String(ch, start, length));
-            hasGender = false;
+        if(hasGenero) {
+            user.setGenero(new String(ch, start, length));
+            hasGenero = false;
         }
     }
+
 
     public List<User> getUserList(){return userList;}
 }
