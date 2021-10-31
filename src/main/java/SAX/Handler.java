@@ -66,6 +66,5 @@ public class Handler extends DefaultHandler {
         }
     }
 
-
     public List<User> getUserList(){return userList;}
 }

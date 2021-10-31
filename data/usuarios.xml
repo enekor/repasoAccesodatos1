@@ -1,0 +1,20 @@
+<Usuarios>
+    <user>
+        <nombre>Alma</nombre>
+        <apellidos>Marcela Gozo</apellidos>
+        <edad>34</edad>
+        <genero>Mujer</genero>
+    </user>
+    <user>
+        <nombre>Felipe</nombre>
+        <apellidos>Lotas Redondo</apellidos>
+        <edad>12</edad>
+        <genero>Hombre</genero>
+    </user>
+    <user>
+        <nombre>Aitor</nombre>
+        <apellidos>Tilla Moreno</apellidos>
+        <edad>53</edad>
+        <genero>Narrativo</genero>
+    </user>
+</Usuarios>
