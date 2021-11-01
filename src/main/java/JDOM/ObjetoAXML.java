@@ -13,6 +13,12 @@ import java.util.List;
 
 public class ObjetoAXML {
 
+    /**
+     * creamos el elemento root, se lo añadimos al dom como root element y lo pasamos al creador de xmls
+     * @param lista de usuarios que meteremos en el xml
+     * @param uri donde se guardara el xml
+     * @throws IOException
+     */
     public void listToXML(List<User> lista, String uri) throws IOException {
         Element root = new Element("User");
         Document dom = new Document();
@@ -28,6 +34,12 @@ public class ObjetoAXML {
         crearXML(dom,uri);
     }
 
+    /**
+     * creamos los nodos hijo que contendra el nodo root
+     * @param lista no haria falta, es el de los nombres que tendra cada nodo hijo
+     * @param user que usaremos para crear el elemento hijo
+     * @return el elemento hijo que añadiremos a root
+     */
     private Element createNode(List<String> lista, User user){
         Element elemento = new Element("Usuario");
         elemento.setAttribute(new Attribute("id",String.valueOf(user.getId())));
@@ -51,9 +63,16 @@ public class ObjetoAXML {
         return elemento;
     }
 
+    /**
+     * creamos el xml a partir de un dom
+     * @param dom que usaremos para crear el xml
+     * @param uri donde lo guardaremos
+     * @throws IOException
+     */
     private void crearXML(Document dom, String uri) throws IOException {
         XMLOutputter xml = new XMLOutputter();
         BufferedWriter bw = new BufferedWriter(new FileWriter(uri));
         xml.output(dom,bw);
+
     }
 }
